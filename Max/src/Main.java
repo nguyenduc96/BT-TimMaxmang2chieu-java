@@ -1,23 +1,25 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Nhập kích thước cột : ");
-            int arrayLengthRow = scanner.nextInt();
-            System.out.println("Nhập kích thước hàng : ");
-            int arrayLengthColumm = scanner.nextInt();
-            double[][] array = createArray(arrayLengthRow, arrayLengthColumm);
-            for (int i = 0; i < arrayLengthRow; i++) {
-                for (int j = 0; j < arrayLengthColumm; j++) {
-                    System.out.print("Nhập giá trị tại  " + i + " " + j + " :");
-                    array[i][j] = scanner.nextDouble();
-                }
+        System.out.println("Nhập kích thước cột : ");
+        int arrayLengthRow = scanner.nextInt();
+        System.out.println("Nhập kích thước hàng : ");
+        int arrayLengthColumm = scanner.nextInt();
+        double[][] array = createArray(arrayLengthRow, arrayLengthColumm);
+        for (int i = 0; i < arrayLengthRow; i++) {
+            for (int j = 0; j < arrayLengthColumm; j++) {
+                System.out.print("Nhập giá trị tại  " + i + " " + j + " :");
+                array[i][j] = scanner.nextDouble();
             }
-            System.out.println("Giá trị lớn nhất là : " + searchMax(array));
-            break;
         }
+        System.out.println("Mảng : ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+        System.out.println("Giá trị lớn nhất là : " + searchMax(array));
     }
 
     public static double searchMax(double[][] array) {
